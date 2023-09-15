@@ -1,0 +1,175 @@
+[gd_scene load_steps=12 format=3 uid="uid://vx4gkssqq2mc"]
+
+[ext_resource type="PackedScene" uid="uid://d01ddn7etrb6d" path="res://Prefabs/player.tscn" id="1_0kmfi"]
+[ext_resource type="Script" path="res://Prefabs/Stairs.gd" id="3_lut25"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nf2ej"]
+size = Vector3(1, 0.100977, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xlxet"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd87f"]
+albedo_color = Color(0.34902, 0.168627, 0.223529, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13e3n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqpc1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w4kyi"]
+sky_top_color = Color(0.486275, 0.396078, 0.627451, 1)
+sky_horizon_color = Color(0.827451, 0.588235, 0.541176, 1)
+sky_curve = 0.106066
+sky_energy_multiplier = 0.64
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.835294, 0.533333, 0.65098, 1)
+
+[sub_resource type="Sky" id="Sky_44bjc"]
+sky_material = SubResource("ProceduralSkyMaterial_w4kyi")
+
+[sub_resource type="Environment" id="Environment_lu4qw"]
+background_mode = 2
+background_energy_multiplier = 3.14
+sky = SubResource("Sky_44bjc")
+ambient_light_source = 3
+ambient_light_color = Color(0.356863, 0.521569, 0.768627, 1)
+volumetric_fog_density = 0.0106
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u3ik7"]
+
+[node name="3DLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.458261, 0.888818, 0, -0.888818, 0.458261, -0.641523, 7.11455, -4.14338)
+
+[node name="Geo" type="Node" parent="."]
+
+[node name="Hallway" type="StaticBody3D" parent="Geo"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.86057, -4.97738, -7.80429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geo/Hallway"]
+shape = SubResource("BoxShape3D_nf2ej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geo/Hallway"]
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd87f")
+
+[node name="Lower" type="StaticBody3D" parent="Geo"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.99138, -4.94068, -7.80429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geo/Lower"]
+shape = SubResource("BoxShape3D_nf2ej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geo/Lower"]
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd87f")
+
+[node name="Lower2" type="StaticBody3D" parent="Geo"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 17.9914, -4.94068, -7.80429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geo/Lower2"]
+shape = SubResource("BoxShape3D_nf2ej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geo/Lower2"]
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd87f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geo/Lower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd87f")
+
+[node name="Top" type="StaticBody3D" parent="Geo"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 14.6467, 0.872908, -11.4492)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geo/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39858, 0)
+shape = SubResource("BoxShape3D_nf2ej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geo/Top"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd87f")
+
+[node name="Top2" type="StaticBody3D" parent="Geo"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 24.6467, 0.872908, -11.4492)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geo/Top2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39858, 0)
+shape = SubResource("BoxShape3D_nf2ej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geo/Top2"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd87f")
+
+[node name="StairsUp" type="StaticBody3D" parent="Geo"]
+transform = Transform3D(8.0913, -5.8763, 0, 5.8763, 8.0913, 0, 0, 0, 10, 8.25005, -1.37137, -11.4229)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geo/StairsUp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39858, 0)
+shape = SubResource("BoxShape3D_nf2ej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geo/StairsUp"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_xlxet")
+surface_material_override/0 = SubResource("StandardMaterial3D_13e3n")
+
+[node name="Player" parent="." instance=ExtResource("1_0kmfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.909285, 0.438392, -5.17918)
+floor_snap_length = 1.0
+movespeed = 3
+
+[node name="NOTES" type="Node" parent="."]
+
+[node name="1" type="Label3D" parent="NOTES"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 0.43, 0, 2.77887, -10.3439)
+text = "Hallway
+"
+
+[node name="2" type="Label3D" parent="NOTES"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.35725, 6.01872, -10.3439)
+text = "Stairs
+"
+
+[node name="3" type="Label3D" parent="NOTES"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 15.2592, 7.82799, -10.3439)
+text = "Upper"
+
+[node name="4" type="Label3D" parent="NOTES"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 12.4857, 1.04494, -6.02264)
+text = "Lower"
+
+[node name="Triggers" type="Node" parent="."]
+
+[node name="Stairs" type="Node3D" parent="Triggers"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 2.99808, -9.53674e-07, -6.61733)
+script = ExtResource("3_lut25")
+Positions = Array[Vector3]([Vector3(2.51213, 0.266797, -5.54478), Vector3(8.12976, 3.23705, -8.21047), Vector3(9.29746, -1.67894, -4.57584)])
+
+[node name="Hallway" type="Area3D" parent="Triggers/Stairs"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Stairs/Hallway"]
+shape = SubResource("BoxShape3D_gqpc1")
+
+[node name="Upstairs" type="Area3D" parent="Triggers/Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37804, 2.14714, -0.80701)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Stairs/Upstairs"]
+shape = SubResource("BoxShape3D_gqpc1")
+
+[node name="UpstairsPos" type="Marker3D" parent="Triggers"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 10.306, 5.54107, -8.21047)
+
+[node name="HallwayPos" type="Marker3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51213, 0.266797, -5.54478)
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lu4qw")
+camera_attributes = SubResource("CameraAttributesPractical_u3ik7")
+
+[node name="Node" type="Node" parent="."]
+
+[connection signal="body_entered" from="Triggers/Stairs/Hallway" to="Triggers/Stairs" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Triggers/Stairs/Hallway" to="Triggers/Stairs" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Triggers/Stairs/Upstairs" to="Triggers/Stairs" method="UpstairsEnter"]
+[connection signal="body_exited" from="Triggers/Stairs/Upstairs" to="Triggers/Stairs" method="UpstairsExit"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8d1hdu3ekxqd"]
+
+[ext_resource type="Script" path="res://ViewportTextures.gd" id="1_gbsam"]
+[ext_resource type="PackedScene" uid="uid://s8is5gvl2pk" path="res://Templates/TestScenes/TestLevel3D.tscn" id="2_2guij"]
+[ext_resource type="Texture2D" uid="uid://bd8nmwvg7dn3o" path="res://icon.svg" id="2_5xv0l"]
+[ext_resource type="PackedScene" uid="uid://dmvafb2id6wkb" path="res://Templates/TestScenes/TestLevel2D.tscn" id="3_uqofq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gbsam")
+
+[node name="Screen2d" type="Sprite2D" parent="."]
+scale = Vector2(8.21875, 4.71094)
+texture = ExtResource("2_5xv0l")
+
+[node name="Screen3d" type="Sprite2D" parent="."]
+scale = Vector2(2.29297, 1.53906)
+texture = ExtResource("2_5xv0l")
+
+[node name="3dVP" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+
+[node name="3DLevel" parent="3dVP" instance=ExtResource("2_2guij")]
+
+[node name="2dVP" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+
+[node name="2DLevel" parent="2dVP" instance=ExtResource("3_uqofq")]

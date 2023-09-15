@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://f3wso10rol8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gncjw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_her52"]
+
+[node name="2DLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Geo" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Geo"]
+position = Vector2(0, 323)
+scale = Vector2(60.04, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geo/StaticBody2D"]
+shape = SubResource("RectangleShape2D_gncjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Geo/StaticBody2D"]
+position = Vector2(2.98023e-08, -81.5)
+scale = Vector2(20, 183)
+texture = SubResource("PlaceholderTexture2D_her52")

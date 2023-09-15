@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://d01ddn7etrb6d"]
+
+[ext_resource type="Script" path="res://Prefabs/Movement.gd" id="1_3jsfm"]
+[ext_resource type="Texture2D" uid="uid://dpxihed8nt2au" path="res://Placeholder Graphics/overlay.png" id="1_bn1bc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p77v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tpyk2"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+floor_constant_speed = true
+floor_max_angle = 0.872665
+script = ExtResource("1_3jsfm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1p77v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.788809, 0, 0, 0, 0.791403, 0, 0, 0, 0.804173, 0, 0, 0)
+mesh = SubResource("BoxMesh_tpyk2")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984097, -0.177634, 0, 0.177634, 0.984097, -0.0334864, 0.885, 4.95284)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bn1bc")
